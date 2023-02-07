@@ -6,3 +6,6 @@ dictionary = {
     "cat" : "Calico",
 }
 print(dictionary["dog"])
+mealtimes = ("10:00AM", "1:00PM", "5:00PM", "9:00PM")
+print(mealtimes[0])
+
