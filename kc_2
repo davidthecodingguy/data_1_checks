@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 columns = ["Total Deaths", "Country Name"]
@@ -9,17 +8,17 @@ print(df.iloc[0:10])
 x=df["Country Name"]
 y=df["Total Deaths"]
 
-ax1 = plt.subplot()
-
 plt.rcParams["figure.autolayout"] = True
 plt.rcParams["figure.figsize"] = (12, 8)
-plt.rcParams["figure.dpi"] = 25
+plt.rcParams["figure.dpi"] = 100
 
-plt.title("USA COVID Infections and Recovery")
+plt.title("COVID Deaths")
 plt.xlabel("Countries")
 plt.ylabel("Total Deaths")
-#plt.xticks(np.arange(min("USA"), max("Russia") + 5, 5))
+
+ax1 = plt.subplot()
 ax1.set_xticklabels(x, rotation=90)
 
+plt.xlim(0, 40)
 plt.plot(x, y)
 plt.show()
