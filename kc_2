@@ -1,20 +1,23 @@
 import pandas as pd
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+columns = ["Total Deaths", "Country Name"]
+df = pd.read_csv("assets/Country-wise-COVID-cases.csv", usecols=columns)
+print(df)#.iloc[0:10])
+
+x=df["Country Name"]
+y=df["Total Deaths"]
+
+ax1 = plt.subplot()
+
 plt.rcParams["figure.autolayout"] = True
-plt.rcParams["figure.figsize"] = (12, 8)
-df = pd.read_csv("assets/Country-wise-COVID-cases.csv")
-print(df.iloc[0])
-x=df[0]
-y=df[1]
+plt.rcParams["figure.figsize"] = (10000, 200)
+plt.rcParams["figure.dpi"] = 100
+
+plt.title("USA COVID Infections and Recovery")
+plt.xlabel("Countries")
+plt.ylabel("Total Deaths")
+#ax1.set_xticklabels("Country Name", rotation=90)
+
 plt.plot(x, y)
-plt.plot(z, t)
 plt.show()
-
-
-
-
-#plt.plot(x=df["Total Infected"],
-         #y=df["Total Recovered"])
-#plt.show()
