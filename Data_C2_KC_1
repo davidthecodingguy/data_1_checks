@@ -1,7 +1,14 @@
 import requests
 import pandas as pd
 
-req = requests.get('https://randomuser.me/api/')
-data = req.json()['results']
+req = requests.get('https://datausa.io/api/data?drilldowns=Nation&measures=Population')
+data = req.json()['data']
 df = pd.DataFrame(data)
-print(df)
+average = df.mean()
+shape = df.shape
+
+printyear = df[df['Year'] == '2020']
+
+print(average)
+print(shape)
+print(printyear)
