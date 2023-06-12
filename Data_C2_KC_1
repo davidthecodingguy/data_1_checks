@@ -1,0 +1,7 @@
+import requests
+import pandas as pd
+
+req = requests.get('https://randomuser.me/api/')
+data = req.json()['results']
+df = pd.DataFrame(data)
+print(df)
