@@ -1,17 +1,21 @@
 import requests
 import pandas as pd
-
+#pulling data from the API
 req = requests.get('https://datausa.io/api/data?drilldowns=Nation&measures=Population')
 data = req.json()['data']
 df = pd.DataFrame(data)
-average = df.mean()
-shape = df.shape
+#two descriptive statistics about the data
+average = df['Population'].mean()
+median = df['Population'].median()
+#Pandas query to select a data subset
 printyear = df[df['Year'] == '2020']
+#printing 2nd and 3rd columns
 columns = df[["Nation", "ID Year"]].to_string(index=False)
+#printing 1st four rows
 rows = df.iloc[[0,1,2,3]]
 
 print(average)
-print(shape)
+print(median)
 print(printyear)
 print(columns)
 print(rows)
