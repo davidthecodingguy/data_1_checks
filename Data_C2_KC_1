@@ -6,9 +6,12 @@ data = req.json()['data']
 df = pd.DataFrame(data)
 average = df.mean()
 shape = df.shape
-
 printyear = df[df['Year'] == '2020']
+columns = df[["Nation", "ID Year"]].to_string(index=False)
+rows = df.iloc[[0,1,2,3]]
 
 print(average)
 print(shape)
 print(printyear)
+print(columns)
+print(rows)
