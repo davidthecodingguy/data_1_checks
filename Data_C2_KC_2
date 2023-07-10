@@ -1,0 +1,6 @@
+import pandas as pd
+
+df = pd.read_csv("assets/car_buying_demo_data_fake.csv")
+df.replace(to_replace=1.0, value='Yes', inplace=True)
+df.fillna("No", inplace=True)
+print(df)
