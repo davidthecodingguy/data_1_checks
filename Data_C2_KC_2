@@ -1,6 +1,11 @@
 import pandas as pd
-
+#Reading in data
 df = pd.read_csv("assets/car_buying_demo_data_fake.csv")
+#replacing nonsense null values in the "Car Purchased?" column into understandible information
 df.replace(to_replace=1.0, value='Yes', inplace=True)
 df.fillna("No", inplace=True)
+#dropping participants that did not consent to info release
+df.replace(to_replace=0, value=pd.np.nan, inplace=True)
+df.dropna(inplace=True)
+#printing new dataframe
 print(df)
